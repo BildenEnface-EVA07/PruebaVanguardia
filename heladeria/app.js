@@ -7,6 +7,17 @@ const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var fedeRouter = require('./routes/mongo');
+
+const mongoURI = "mongodb+srv://admin:admin@cluster0.nzlv0sg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// conectar con Mongoose
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("Conectado a MongoDB"))
+.catch(err => console.error("Error al conectar a MongoDB:", err));
 
 var app = express();
 
@@ -22,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/fede', fedeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

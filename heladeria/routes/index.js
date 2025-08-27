@@ -1,7 +1,5 @@
 var express = require('express');
 
-const heladosctr = require('../controllers/helados')
-
 var router = express.Router();
 
 /* GET home page. */

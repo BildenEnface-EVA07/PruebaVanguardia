@@ -1,7 +1,8 @@
-var  router = require('express').Router()
+var express = require('express');
+var router = express.Router();
 
-const heladosctr = require('../controllers/helados')
+const heladosctr = require('../controllers/helados.js')
 
-router.get('/movies', heladosctr.getMovies)
+router.get('/fede', heladosctr.getMain);
 
-module.export = router
+module.exports = router;

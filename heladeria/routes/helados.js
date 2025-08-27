@@ -1,7 +1,8 @@
-var  router = require('express').Router()
+const express = require('express');
+const router = express.Router();
+const heladosController = require('../controllers/helados');
 
-const heladosctr = require('../controllers/helados')
+// Ruta GET
+router.get('/mongo', heladosController.getHelados);
 
-router.get('/main', heladosctr.getMain)
-
-module.export = router
+module.exports = router;
